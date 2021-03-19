@@ -1,0 +1,39 @@
+/*
+ *------------------------------------------------------------------------------
+ * Dial2
+ * Created %CurrentDate% %CurrentTime%
+ *------------------------------------------------------------------------------
+ */
+
+import QmlProject 1.1
+
+Project {
+    mainFile: "Dial2AddIn.qml"
+
+    QmlFiles {
+        directory: "."
+        recursive: true
+    }
+
+    JavaScriptFiles {
+        directory: "."
+        recursive: true
+    }
+
+    ImageFiles {
+        directory: "."
+        recursive: true
+    }
+
+    Files {
+        directory: "."
+        recursive: true
+        filter: "*.json;*.html;*.txt"
+    }
+
+
+    importPaths: [
+        // "../../../Applications/Melbourne/Survey123/App/Extensibility",
+        // "C:/Applications/Melbourne/Survey123/App/Extensibility"
+    ]
+}

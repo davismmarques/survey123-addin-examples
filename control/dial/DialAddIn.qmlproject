@@ -1,6 +1,6 @@
 /*
  *------------------------------------------------------------------------------
- * Dial2
+ * Dial
  * Created %CurrentDate% %CurrentTime%
  *------------------------------------------------------------------------------
  */
@@ -8,7 +8,7 @@
 import QmlProject 1.1
 
 Project {
-    mainFile: "Dial2AddIn.qml"
+    mainFile: "DialAddIn.qml"
 
     QmlFiles {
         directory: "."

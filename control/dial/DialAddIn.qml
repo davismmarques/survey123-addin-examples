@@ -2,7 +2,7 @@
  *------------------------------------------------------------------------------
  *  Survey123 Add-In
  *
- *  Dial2
+ *  Dial
  *
  *  Created %{CurrentDate} %{CurrentTime}
  *
@@ -33,7 +33,7 @@ AddInControl {
 
     //--------------------------------------------------------------------------
 
-    Dial2SettingsInfo {
+    DialSettingsInfo {
         id: settingsInfo
 
         settings: addIn.settings

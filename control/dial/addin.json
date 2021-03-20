@@ -1,0 +1,13 @@
+{
+    "id": "org.AddIn.Dial",
+    "projectFile": "DialAddIn.qmlproject",
+    "mainFile": "DialAddIn.qml",
+    "settingsPageFile": "DialSettingsPage.qml",
+    "icon": "icon.png",
+    "type": "control",
+    "version": {
+        "major": 0,
+        "minor": 0,
+        "micro": 0
+    }
+}

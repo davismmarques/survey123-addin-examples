@@ -2,7 +2,7 @@
  *------------------------------------------------------------------------------
  *  Survey123 Add-In
  *
- *  Dial2 Settings Page
+ *  Dial Settings Page
  *
  *  Created %{CurrentDate} %{CurrentTime}
  *
@@ -36,7 +36,7 @@ AddInSettingsPage {
 
     //--------------------------------------------------------------------------
 
-    Dial2SettingsInfo {
+    DialSettingsInfo {
         id: settingsInfo
 
         settings: page.settings
@@ -63,7 +63,7 @@ AddInSettingsPage {
         Text {
             Layout.fillWidth: true
 
-            text: "Dial2 setting 1"
+            text: "Dial setting 1"
 
             font {
                 family: page.font.family

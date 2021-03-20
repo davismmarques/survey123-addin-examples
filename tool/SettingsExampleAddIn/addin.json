@@ -1,0 +1,16 @@
+{
+    "id": "org.AddIn.SettingsExampleAddIn",
+    "projectFile": "SettingsExampleAddInAddIn.qmlproject",
+    "mainFile": "SettingsExampleAddInAddIn.qml",
+    "settingsPageFile": "SettingsExampleAddInSettingsPage.qml",
+    "icon": "icon.png",
+    "type": "tool",
+    "tool": {
+        "modes": "tile"
+    },
+    "version": {
+        "major": 0,
+        "minor": 0,
+        "micro": 0
+    }
+}

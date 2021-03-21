@@ -20,11 +20,11 @@ import ArcGIS.Survey123 1.0
 AddInControl {
     id: addIn
 
-    onPropertiesChanged: {
-        console.log('dial properties changed', JSON.stringify(addIn.properties));
-    }
     onSettingsModified: {
         settingsInfo.read();
+    }
+    onUpdateValue: function(nextValue) {
+        value = nextValue;
     }
 
     //--------------------------------------------------------------------------
@@ -61,6 +61,7 @@ AddInControl {
             snapMode: Dial.SnapAlways
             stepSize: addIn.properties.step
             to: addIn.properties.end
+            value: addIn.value
             width: 120
         }
 

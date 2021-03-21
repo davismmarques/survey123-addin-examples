@@ -1,0 +1,16 @@
+{
+    "id": "org.AddIn.FileFolderExampleAddIn",
+    "projectFile": "FileFolderExampleAddInAddIn.qmlproject",
+    "mainFile": "FileFolderExampleAddInAddIn.qml",
+    "settingsPageFile": "FileFolderExampleAddInSettingsPage.qml",
+    "icon": "icon.png",
+    "type": "tool",
+    "tool": {
+        "modes": "tile"
+    },
+    "version": {
+        "major": 0,
+        "minor": 0,
+        "micro": 0
+    }
+}

@@ -31,7 +31,6 @@ Project {
         filter: "*.json;*.html;*.txt"
     }
 
-
     importPaths: [
         // "../../../Applications/Melbourne/Survey123/App/Extensibility",
         // "C:/Applications/Melbourne/Survey123/App/Extensibility"

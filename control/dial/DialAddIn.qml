@@ -15,18 +15,14 @@ import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.3
 
 import ArcGIS.AppFramework 1.0
-
 import ArcGIS.Survey123 1.0
 
 AddInControl {
     id: addIn
 
-    //--------------------------------------------------------------------------
-
     onPropertiesChanged: {
-        console.log('>>>>> properties', JSON.stringify(addIn.properties));
+        console.log('dial properties changed', JSON.stringify(addIn.properties));
     }
-
     onSettingsModified: {
         settingsInfo.read();
     }
@@ -49,20 +45,28 @@ AddInControl {
 
     //--------------------------------------------------------------------------
 
-    ColumnLayout {
-        anchors.fill: parent
+    Item {
+        height: 120
+        width: parent.width
 
         Dial {
+            id: dial
+            anchors.centerIn: parent
             from: addIn.properties.start
-            to: addIn.properties.end
+            height: 120
+            onMoved: {
+                console.log('dial value changed', value);
+                addIn.value = value;
+            }
             snapMode: Dial.SnapAlways
             stepSize: addIn.properties.step
-            height: 120
+            to: addIn.properties.end
             width: 120
+        }
+
+        Text {
             anchors.centerIn: parent
-            onMoved: {
-                console.log('dial value is', value);
-            }
+            text: dial.value
         }
     }
 

@@ -23,16 +23,16 @@ QtObject {
     //--------------------------------------------------------------------------
     // Keys names
 
-    readonly property string kKeyStart: "start"
+    readonly property string kKeyExample: "example"
 
     //--------------------------------------------------------------------------
     // Default values
 
-    readonly property real kDefaultStart: 0
+    readonly property real kDefaultExample: 0
 
     //--------------------------------------------------------------------------
 
-    property real start: kDefaultStart
+    property real example: kDefaultExample
 
     //--------------------------------------------------------------------------
 
@@ -43,13 +43,13 @@ QtObject {
     //--------------------------------------------------------------------------
 
     function read() {
-        start = settings.value(kKeyStart, kDefaultStart);
+        example = settings.value(kKeyExample, kDefaultExample);
     }
 
     //--------------------------------------------------------------------------
 
     function write() {
-        settings.setValue(kKeyStart, start, kDefaultStart);
+        settings.setValue(kKeyExample, example, kDefaultExample);
     }
 
     //--------------------------------------------------------------------------

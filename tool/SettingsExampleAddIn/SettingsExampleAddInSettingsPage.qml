@@ -1,3 +1,5 @@
+
+
 /*
  *------------------------------------------------------------------------------
  *  Survey123 Add-In
@@ -8,7 +10,6 @@
  *
  *------------------------------------------------------------------------------
 */
-
 import QtQml 2.12
 import QtQuick 2.12
 import QtQuick.Layouts 1.3
@@ -22,20 +23,17 @@ AddInSettingsPage {
     id: page
 
     //--------------------------------------------------------------------------
-
     Component.onCompleted: {
-        settingsInfo.read();
+        settingsInfo.read()
     }
 
     //--------------------------------------------------------------------------
-
     Component.onDestruction: {
-        page.forceActiveFocus();
-        settingsInfo.write();
+        page.forceActiveFocus()
+        settingsInfo.write()
     }
 
     //--------------------------------------------------------------------------
-
     SettingsExampleAddInSettingsInfo {
         id: settingsInfo
 
@@ -43,7 +41,6 @@ AddInSettingsPage {
     }
 
     //--------------------------------------------------------------------------
-
     LoggingCategory {
         id: logCategory
 
@@ -51,20 +48,16 @@ AddInSettingsPage {
     }
 
     //--------------------------------------------------------------------------
-
     ColumnLayout {
         anchors {
             fill: parent
             margins: 10 * AppFramework.displayScaleFactor
         }
-
         spacing: 5 * AppFramework.displayScaleFactor
 
         Text {
             Layout.fillWidth: true
-
             text: "SettingsExampleAddIn - setting - Show Delete Button"
-
             font {
                 family: page.font.family
                 pointSize: 14
@@ -74,19 +67,14 @@ AddInSettingsPage {
         Switch {
             id: showButtonSwitch
             Layout.fillWidth: true
-
             text: qsTr("Show Delete Button")
-
             font {
                 family: page.font.family
                 pointSize: 16
             }
-
             checked: settingsInfo.showButton
-
-            onCheckedChanged:settingsInfo.showButton = (checked) ? 1 : 0
+            onCheckedChanged: settingsInfo.showButton = (checked) ? 1 : 0
         }
-
 
         Item {
             Layout.fillHeight: true

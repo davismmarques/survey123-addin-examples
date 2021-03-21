@@ -1,3 +1,5 @@
+
+
 /*
  *------------------------------------------------------------------------------
  *  Survey123 Add-In
@@ -8,7 +10,6 @@
  *
  *------------------------------------------------------------------------------
 */
-
 import QtQml 2.12
 import QtQuick 2.12
 import QtQuick.Controls 2.5
@@ -22,13 +23,11 @@ AddInTool {
     id: addIn
 
     //--------------------------------------------------------------------------
-
     onSettingsModified: {
-        settingsInfo.read();
+        settingsInfo.read()
     }
 
     //--------------------------------------------------------------------------
-
     SettingsExampleAddInSettingsInfo {
         id: settingsInfo
 
@@ -36,7 +35,6 @@ AddInTool {
     }
 
     //--------------------------------------------------------------------------
-
     LoggingCategory {
         id: logCategory
 
@@ -44,10 +42,6 @@ AddInTool {
     }
 
     //--------------------------------------------------------------------------
-
-
-
-
     ListModel {
         id: fruitModel
         ListElement {
@@ -73,11 +67,8 @@ AddInTool {
         }
     }
 
-
     ColumnLayout {
         anchors.fill: parent
-
-
 
         TableView {
             anchors.right: parent.right
@@ -100,26 +91,22 @@ AddInTool {
                         family: page.font.family
                         pointSize: 20
                     }
-
-
                 }
             }
         }
 
-
-        Button{
+        Button {
             id: deleteBtn
             anchors.bottom: parent.bottom
             Layout.fillWidth: true
             enabled: settingsInfo.showButton === 1
-            text: settingsInfo.showButton === 1 ? "DELETE" : "DELETE - Enable this button through Add-In settings."
+            text: settingsInfo.showButton
+                  === 1 ? "DELETE" : "DELETE - Enable this button through Add-In settings."
             onClicked: {
                 fruitModel.remove(0)
             }
         }
-
     }
 
     //--------------------------------------------------------------------------
 }
-

@@ -1,3 +1,4 @@
+
 /*
  *------------------------------------------------------------------------------
  *  Survey123 Add-In
@@ -10,7 +11,6 @@
 */
 
 // ref: https://developers.arcgis.com/qt/extras/api-reference/qml-esri-arcgisextras-filefolder.html
-
 import QtQml 2.12
 import QtQuick 2.12
 import QtQuick.Controls 2.5
@@ -24,13 +24,11 @@ AddInTool {
     id: addIn
 
     //--------------------------------------------------------------------------
-
     onSettingsModified: {
-        settingsInfo.read();
+        settingsInfo.read()
     }
 
     //--------------------------------------------------------------------------
-
     FileFolderExampleAddInSettingsInfo {
         id: settingsInfo
 
@@ -38,7 +36,6 @@ AddInTool {
     }
 
     //--------------------------------------------------------------------------
-
     LoggingCategory {
         id: logCategory
 
@@ -51,14 +48,12 @@ AddInTool {
         Item {
             Layout.fillHeight: true
         }
-
         // Exists
         // ref: https://developers.arcgis.com/qt/extras/api-reference/qml-esri-arcgisextras-filefolder.html#exists-prop
-        Row{
+        Row {
             Layout.fillWidth: true
-
-            Text{
-                id:fileExistsText
+            Text {
+                id: fileExistsText
                 text: "fileExists:"
                 anchors.left: parent.left
                 font {
@@ -66,30 +61,26 @@ AddInTool {
                     pointSize: 20
                 }
             }
-
-            TextField  {
+            TextField {
                 id: existCheckTextField
                 Layout.fillWidth: true
                 anchors.right: existCheckStatusIndicator.left
                 anchors.left: fileExistsText.right
                 wrapMode: Text.WrapAnywhere
-                text:legacyStorageFolderPath
-
+                text: legacyStorageFolderPath
                 font {
                     family: addIn.font.family
                     pointSize: 20
                 }
-
                 onTextChanged: {
                     existCheckFileFolder.path = text
-                    if(existCheckFileFolder.exists){
+                    if (existCheckFileFolder.exists) {
                         existCheckStatusIndicator.color = "green"
-                    }else{
+                    } else {
                         existCheckStatusIndicator.color = "red"
                     }
                 }
             }
-
             Rectangle {
                 id: existCheckStatusIndicator
                 anchors.right: parent.right
@@ -98,28 +89,24 @@ AddInTool {
                 width: 45
                 height: 45
             }
-
         }
-
         Item {
             Layout.fillHeight: true
         }
-
-        Item{
+        Item {
             Layout.fillWidth: true
             Layout.minimumHeight: 5
-            Rectangle{
-                anchors.fill: parent; color: "#1167b1"
+            Rectangle {
+                anchors.fill: parent
+                color: "#1167b1"
             }
         }
-
         // makePath
         // Ref: https://developers.arcgis.com/qt/extras/api-reference/qml-esri-arcgisextras-filefolder.html#makePath-method
-        Row{
+        Row {
             Layout.fillWidth: true
-
-            Text{
-                id:makePathText
+            Text {
+                id: makePathText
                 text: "makePath:"
                 anchors.left: parent.left
                 font {
@@ -127,36 +114,32 @@ AddInTool {
                     pointSize: 20
                 }
             }
-
-            TextField  {
+            TextField {
                 id: makePathTextField
                 anchors.right: makePathButton.left
                 anchors.left: makePathText.right
                 wrapMode: Text.WrapAnywhere
-                text:legacyStorageFolderPath
+                text: legacyStorageFolderPath
                 Layout.fillWidth: true
 
                 font {
                     family: addIn.font.family
                     pointSize: 20
                 }
-
             }
-
             Button {
                 id: makePathButton
                 text: "Create!"
                 anchors.right: makePathStatusIndicator.left
                 Layout.preferredWidth: parent.width * 0.1
                 onClicked: {
-                    if(makePathFileFolder.makeFolder(makePathTextField.text)){
+                    if (makePathFileFolder.makeFolder(makePathTextField.text)) {
                         makePathStatusIndicator.color = "green"
-                    }else{
+                    } else {
                         makePathStatusIndicator.color = "red"
                     }
                 }
             }
-
             Rectangle {
                 id: makePathStatusIndicator
                 anchors.right: parent.right
@@ -165,29 +148,24 @@ AddInTool {
                 width: 45
                 height: 45
             }
-
         }
-
         Item {
             Layout.fillHeight: true
         }
-
-        Item{
+        Item {
             Layout.fillWidth: true
             Layout.minimumHeight: 5
-            Rectangle{
-                anchors.fill: parent; color: "#1167b1"
+            Rectangle {
+                anchors.fill: parent
+                color: "#1167b1"
             }
         }
-
         // File info
         // ref: https://developers.arcgis.com/qt/extras/api-reference/qml-esri-arcgisextras-fileinfo.html
-
-        Row{
+        Row {
             Layout.fillWidth: true
-
-            Text{
-                id:fileInfoText
+            Text {
+                id: fileInfoText
                 text: "makePath:"
                 anchors.left: parent.left
                 font {
@@ -195,64 +173,48 @@ AddInTool {
                     pointSize: 20
                 }
             }
-
-            TextField  {
+            TextField {
                 id: fileInfoTextField
                 anchors.right: parent.right
                 anchors.left: fileInfoText.right
                 wrapMode: Text.WrapAnywhere
-                text:legacyStorageFolderPath
+                text: legacyStorageFolderPath
                 Layout.fillWidth: true
 
                 font {
                     family: addIn.font.family
                     pointSize: 20
                 }
-
                 onTextChanged: {
                     fileInfoFileFolder.path = text
-
-                    if(fileInfoFileFolder.exists){
-
+                    if (fileInfoFileFolder.exists) {
                         var fileInfo = fileInfoFileFolder.fileInfo(text)
                         var createdDate = fileInfo.created.toString()
                         var size = fileInfo.size
                         var isWritable = fileInfo.isWritable
 
-
                         createdfileInfoText.text = "Created: " + createdDate
-                        if (size === 0){
+                        if (size === 0) {
                             sizefileInfoText.text = "Size: N/A"
-
-                        }else{
+                        } else {
                             sizefileInfoText.text = "Size: " + size
-
                         }
                         isWritablefileInfoText.text = "Writable: " + isWritable
-
                     } else {
                         createdfileInfoText.text = "Created: File/Folder not found"
                         sizefileInfoText.text = "Size: File/Folder not found "
                         isWritablefileInfoText.text = "Writable: File/Folder not found"
-
                     }
-
-
-
                 }
-
             }
-
         }
         Item {
             Layout.fillHeight: true
         }
-
         Column {
             Layout.fillWidth: true
-
-            Text{
-                id:createdfileInfoText
+            Text {
+                id: createdfileInfoText
                 Layout.fillWidth: true
                 text: "Created:"
                 font {
@@ -260,11 +222,9 @@ AddInTool {
                     pointSize: 20
                 }
                 wrapMode: Text.WrapAnywhere
-
             }
-
-            Text{
-                id:sizefileInfoText
+            Text {
+                id: sizefileInfoText
                 Layout.fillWidth: true
                 text: "Size:"
                 font {
@@ -272,10 +232,9 @@ AddInTool {
                     pointSize: 20
                 }
                 wrapMode: Text.WrapAnywhere
-
             }
-            Text{
-                id:isWritablefileInfoText
+            Text {
+                id: isWritablefileInfoText
                 Layout.fillWidth: true
                 text: "Witable? "
                 font {
@@ -284,33 +243,26 @@ AddInTool {
                 }
                 wrapMode: Text.WrapAnywhere
             }
-
         }
-
         Item {
             Layout.fillHeight: true
         }
-
-
-
     }
 
     // File Folders
-
-    FileFolder{
+    FileFolder {
         id: existCheckFileFolder
         path: existCheckTextField.text
     }
-    FileFolder{
+    FileFolder {
         id: makePathFileFolder
         path: makePathTextField.text
     }
 
-    FileFolder{
+    FileFolder {
         id: fileInfoFileFolder
         path: fileInfoTextField.text
     }
 
     //--------------------------------------------------------------------------
 }
-

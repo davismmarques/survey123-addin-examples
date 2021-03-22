@@ -20,6 +20,7 @@ import ArcGIS.Survey123 1.0
 AddInControl {
     id: addIn
 
+    implicitHeight: 160
     onSettingsModified: {
         settingsInfo.read();
     }
@@ -46,8 +47,7 @@ AddInControl {
     //--------------------------------------------------------------------------
 
     Item {
-        height: 120
-        width: parent.width
+        anchors.fill: parent
 
         Dial {
             id: dial
@@ -73,4 +73,3 @@ AddInControl {
 
     //--------------------------------------------------------------------------
 }
-
